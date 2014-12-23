@@ -1,7 +1,4 @@
-/**
- * 
- */
-
+package fr.albinpoignot.christmasgame;
 /**
  * @author Albin
  *

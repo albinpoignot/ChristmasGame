@@ -1,3 +1,4 @@
+package fr.albinpoignot.christmasgame;
 import java.util.Observable;
 import java.util.Random;
 
