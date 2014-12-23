@@ -11,7 +11,7 @@ import java.util.Observer;
 public class GameController implements Observer {
 
     @FXML
-    private Label nextPlayer;
+    private Label nextPlayerLabel;
 
     @FXML
     private Button stopMusic;
@@ -26,6 +26,7 @@ public class GameController implements Observer {
 
     private RandomTimeWaiter randomTimeWaiter;
     private MusicPlayer musicPlayer;
+    private PlayerChooser playerChooser;
 
     public GameController() {
         System.out.println("Game instance created");
@@ -34,10 +35,11 @@ public class GameController implements Observer {
 
         musicPlayer = new MusicPlayer();
         musicPlayer.addObserver(this);
+
+        playerChooser = new PlayerChooser();
     }
 
     public void onStartButtonClick(ActionEvent actionEvent) {
-        nextPlayer.setText("Reading...");
         startGame();
     }
 
@@ -51,11 +53,14 @@ public class GameController implements Observer {
             if (observable instanceof RandomTimeWaiter) {
                 System.out.println("RandomTimeWaiter ends");
 
-                // TODO Ask for player
-
-                musicPlayer.read();
+                Player nextPlayer = playerChooser.getRandomPlayer();
+                musicPlayer.read(nextPlayer);
+                nextPlayerLabel.setText(nextPlayer.getName());
+                nextPlayerLabel.setVisible(true);
             } else if (observable instanceof MusicPlayer) {
                 System.out.println("MusicPlayer ends");
+                nextPlayerLabel.setText("");
+                nextPlayerLabel.setVisible(false);
                 startGame();
             }
         }
@@ -70,10 +75,14 @@ public class GameController implements Observer {
     public void onStopGameButtonClick(ActionEvent actionEvent) {
         isGameStarted = false;
         musicPlayer.stop();
+        nextPlayerLabel.setText("");
+        nextPlayerLabel.setVisible(false);
     }
 
     public void onStopSoundButtonClick(ActionEvent actionEvent) {
         System.out.println("Stop button clicked !");
         musicPlayer.stop();
+        nextPlayerLabel.setText("");
+        nextPlayerLabel.setVisible(false);
     }
 }

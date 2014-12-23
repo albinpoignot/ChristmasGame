@@ -1,0 +1,12 @@
+[
+	{
+		name="Albin",
+		soundFile="file:///C:/sound.mp3",
+		soundTitle="Naaman"
+	},
+	{
+		name="Valentine",
+		soundFile="file:///C:/sound2.mp3",
+		soundTitle="Naaman2"
+	}
+]
