@@ -47,7 +47,7 @@ public class MusicPlayer extends Observable {
     }
 
     public void stop() {
-        System.out.println("Stop asked !");
+        System.out.println("Stop sound asked !");
         if (mediaPlayer != null) {
             System.out.println("Stopping...");
             mediaPlayer.stop();

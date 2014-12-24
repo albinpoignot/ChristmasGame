@@ -23,7 +23,7 @@ public class PlayerChooser {
         try {
             String dir = System.getProperty("user.dir");
             BufferedReader br = new BufferedReader(
-                    new FileReader(dir + "\\players.json"));
+                    new FileReader(dir + "/players.json"));
 
             Gson gson = new Gson();
             playerList = gson.fromJson(br, new TypeToken<List<Player>>(){}.getType());

@@ -54,7 +54,7 @@ public class GameController implements Observer {
                 System.out.println("RandomTimeWaiter ends");
 
                 Player nextPlayer = playerChooser.getRandomPlayer();
-                musicPlayer.read(nextPlayer);
+                //musicPlayer.read(nextPlayer);
                 nextPlayerLabel.setText(nextPlayer.getName());
                 nextPlayerLabel.setVisible(true);
             } else if (observable instanceof MusicPlayer) {
@@ -73,6 +73,7 @@ public class GameController implements Observer {
     }
 
     public void onStopGameButtonClick(ActionEvent actionEvent) {
+        System.out.println("Stop GAME button clicked !");
         isGameStarted = false;
         musicPlayer.stop();
         nextPlayerLabel.setText("");
@@ -80,7 +81,7 @@ public class GameController implements Observer {
     }
 
     public void onStopSoundButtonClick(ActionEvent actionEvent) {
-        System.out.println("Stop button clicked !");
+        System.out.println("Stop MUSIC button clicked !");
         musicPlayer.stop();
         nextPlayerLabel.setText("");
         nextPlayerLabel.setVisible(false);

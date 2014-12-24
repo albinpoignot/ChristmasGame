@@ -1,51 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<GridPane alignment="TOP_CENTER" hgap="10" prefHeight="600.0" prefWidth="600.0" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.albinpoignot.christmasgame.GameController">
+<VBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.albinpoignot.christmasgame.GameController">
     <children>
 
-        <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <Label alignment="CENTER" contentDisplay="CENTER" text="The Christmas Game :D">
+            <font>
+                <Font name="Verdana" size="36.0" />
+            </font>
+        </Label>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0">
             <children>
-                <Button fx:id="startGame" onAction="#onStartButtonClick" text="Démarrer" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Button fx:id="startGame" onAction="#onStartButtonClick" prefWidth="100.0" text="Démarrer" />
 
-                <Button fx:id="stopGame" onAction="#onStopGameButtonClick" text="Stop" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                <Button fx:id="stopGame" onAction="#onStopGameButtonClick" prefWidth="100.0" text="Stop" />
 
-                <Button fx:id="stopMusic" onAction="#onStopSoundButtonClick" text="CHUT !" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <Label text="The Christmas Game :D" GridPane.columnIndex="1">
-                    <font>
-                        <Font name="Verdana" size="36.0" />
-                    </font>
-                </Label>
+                <Button fx:id="stopMusic" alignment="CENTER" contentDisplay="CENTER" onAction="#onStopSoundButtonClick" prefWidth="100.0" text="CHUT !" />
             </children>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-        </GridPane>
+        </HBox>
 
-        <Label fx:id="nextPlayerLabel" alignment="CENTER" contentDisplay="CENTER" visible="false" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-         <font>
-            <Font size="48.0" />
-         </font></Label>
-
+        <Label fx:id="nextPlayerLabel" alignment="CENTER" contentDisplay="CENTER" visible="false">
+            <font>
+                <Font size="48.0" />
+            </font>
+        </Label>
     </children>
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
-</GridPane>
+</VBox>
